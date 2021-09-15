@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snacks</title>
+    </head>
+    <body>
+        <h1>Edit Snack</h1>
+        <form action="/snacks/{{snack.id}}?_method=PATCH" method="POST">
+            <input type="text" name="name" value={{snack.name}}>
+            <input type="text" name="kind" value={{snack.kind}}>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>

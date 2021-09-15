@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snacks</title>
+    </head>
+    <body>
+        <h1>Snacks</h1>
+        {% for snack in snacks %}
+        <hr />
+        <p>ID: {{snack.id}}</p>
+        <p>Name: {{snack.name}}</p>
+        <p>Kind: {{snack.kind}}</p>
+        {% endfor %}
+    </body>
+</html>
