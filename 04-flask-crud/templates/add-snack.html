@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Snacks</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col text-center">
         <h1>Add Snack</h1>
-        <form action="/snacks" method="POST">
-            <input type="text" name="name">
-            <input type="text" name="kind">
-            <button type="submit">Send</button>
-        </form>
-    </body>
-</html>
+    </div>
+</div>
+<form action="/snacks" method="POST">
+    <div class="mb-3">
+        <label for="inputName" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="name">
+    </div>
+    <div class="mb-3">
+        <label for="inputKind" class="form-label">Kind</label>
+        <input type="text" name="kind" class="form-control" id="kind">
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+{% endblock %}
