@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, abort
 from flask.helpers import url_for
 from snack import Snack
 
@@ -21,12 +21,15 @@ def index():
 def add_snack():
     return render_template('add-snack.html')
 
+
 @app.route("/snacks/<int:id>", methods=['POST', 'GET'])
 def show_snack(id):
     index_snack = -1
     for index, snack in enumerate(snack_list):
         if snack.id == id:
             index_snack = index
+    if index_snack == -1:
+        abort(404)
     if 'PATCH' in str(request.query_string):
         snack_list[index_snack].name = request.form['name']
         snack_list[index_snack].kind = request.form['kind']
@@ -43,4 +46,10 @@ def update_snack(id):
     for index, snack in enumerate(snack_list):
         if snack.id == id:
             index_snack = index
+    if index_snack == -1:
+        abort(404)
     return render_template('edit-snack.html', snack=snack_list[index_snack])
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
