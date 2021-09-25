@@ -1,0 +1,13 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    container_name: snacks
+    environment:
+      - POSTGRES_DB=flask-sql-snacks
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+  

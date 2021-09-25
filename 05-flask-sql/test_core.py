@@ -6,7 +6,7 @@ import psycopg2
 
 class BaseTestCase(TestCase):
     def create_app(self):
-        conn = psycopg2.connect("dbname=flask-sql-snacks-test")
+        conn = psycopg2.connect("dbname=flask-sql-snacks-test user=postgres password=postgres host=127.0.0.1")
         cur = conn.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS snacks (id serial PRIMARY KEY, name text, kind text);")
         conn.commit()
@@ -17,7 +17,7 @@ class BaseTestCase(TestCase):
         create_snack("hershey", "chocolate")
 
     def tearDown(self):
-        conn = psycopg2.connect("dbname=flask-sql-snacks-test")
+        conn = psycopg2.connect("dbname=flask-sql-snacks-test user=postgres password=postgres host=127.0.0.1")
         cur = conn.cursor()
         cur.execute("DROP TABLE snacks;")
         conn.commit()

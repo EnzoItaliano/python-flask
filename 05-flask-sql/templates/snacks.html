@@ -15,23 +15,11 @@
 {% for snack in snacks %}
 <hr />
 <div class="row mt-5">
-    <div class="col-1">
-        <p>ID:</p>
+    <div class="col-12">
+        <p>ID: {{snack.id}}</p>
     </div>
-    <div class="col-11">
-        <p>{{snack.id}}</p>
-    </div>
-    <div class="col-1">
-        <p>Name:</p>
-    </div>
-    <div class="col-11">
-        <p>{{snack.name}}</p>
-    </div>
-    <div class="col-1">
-        <p>Kind:</p>
-    </div>
-    <div class="col-11">
-        <p>{{snack.kind}}</p>
+    <div class="col-12">
+        <p>{{snack.name}} {{snack.kind}}</p>
     </div>
 </div>
 <a href="/snacks/{{snack.id}}">
