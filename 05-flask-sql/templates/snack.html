@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col text-center">
+        <h1>Snack</h1>
+    </div>
+</div>
+<div class="row mt-5 row-cols-2">
+    <div class="col-1">
+        <p>ID:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.id}}</p>
+    </div>
+    <div class="col-1">
+        <p>Name:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.name}}</p>
+    </div>
+    <div class="col-1">
+        <p>Kind:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.kind}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1">
+        <form action="/snacks/{{snack.id}}?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    <div class="col-1">
+        <a href="/snacks/{{snack.id}}/edit">
+            <button type="button" class="btn btn-primary">
+                Edit
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}

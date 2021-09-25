@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col text-center">
+        <h1>Snacks</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <a href="/snacks/new">
+            <button type="button" class="btn btn-success">Add</button>
+        </a>
+    </div>
+</div>
+{% for snack in snacks %}
+<hr />
+<div class="row mt-5">
+    <div class="col-1">
+        <p>ID:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.id}}</p>
+    </div>
+    <div class="col-1">
+        <p>Name:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.name}}</p>
+    </div>
+    <div class="col-1">
+        <p>Kind:</p>
+    </div>
+    <div class="col-11">
+        <p>{{snack.kind}}</p>
+    </div>
+</div>
+<a href="/snacks/{{snack.id}}">
+    <button type="button" class="btn btn-info">Details</button>
+</a>
+{% endfor %}
+{% endblock %}
